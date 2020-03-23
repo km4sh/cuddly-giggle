@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -38,6 +39,7 @@ public class MainView extends View {
         background = BitmapFactory.decodeResource(res, R.mipmap.play_bg);
         screenHeight = DisplayUtil.getScreenHeight(context);
         screenWidth = DisplayUtil.getScreenWidth(context);
+        Log.v("Height" + screenHeight, "Width" + screenWidth);
         // 实例化画笔
         paint = new Paint();
         paint.setAntiAlias(false); // 消除锯齿
@@ -55,8 +57,9 @@ public class MainView extends View {
         w = (int) (screenWidth * 0.5);
         h = (int) (screenHeight * 0.08);
         x = screenWidth / 2 - w / 2;
-        y = screenHeight - (int) (screenHeight * 0.28);
+        y = screenHeight - (int) (screenHeight * 0.32);
         btnBitmap = DisplayUtil.resizeBitmap(startBtn, w, h);
+        Log.v("btn"+w, "height"+h);
         canvas.drawBitmap(btnBitmap, x, y, paint);
     }
 

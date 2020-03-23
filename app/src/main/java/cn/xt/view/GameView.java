@@ -1,5 +1,6 @@
 package cn.xt.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -181,14 +182,16 @@ public class GameView extends View {
         // 是否需要加载消除
         if (clearLoad && load) {
             clearBitmap();
+
             load = false;
         }
-        paint.setColor(Color.WHITE);
-        paint.setTextSize(32);
+
+        paint.setColor(Color.DKGRAY);
+        paint.setTextSize(52);
         paint.setTypeface(Typeface.create(Typeface.DEFAULT_BOLD , Typeface.BOLD));
-        canvas.drawText("当前关卡：" + level, 10, StageUtil.getStage().getHeight() + 70, paint);
-        canvas.drawText("当前得分：" + currScore, 10, StageUtil.getStage().getHeight() + 120, paint);
-        canvas.drawText("通关分数：" + accessScore[level - 1], 10, StageUtil.getStage().getHeight() + 170, paint);
+        //canvas.drawText("当前关卡：" + level, 10, StageUtil.getStage().getHeight() + 70, paint);
+        canvas.drawText("You have already saved " + currScore + " emojis !!", 20, StageUtil.getStage().getHeight() + 50, paint);
+        //canvas.drawText("通关分数：" + accessScore[level - 1], 10, StageUtil.getStage().getHeight() + 170, paint);
         // 刷新屏幕的频率(理论上小于25，人就会感觉物体是在移动)
         postInvalidateDelayed(16);
     }
@@ -415,6 +418,8 @@ public class GameView extends View {
                     soundPool.play(soundPoolMap.get(4 + clearMediaIndex), 1, 1, 0, 0, 1);
                     for (FlashBitmap point : clearList) {
                         bitmaps[(int) point.getX()][(int) point.getY()] = null;
+                        // Bitmap star = DisplayUtil.resizeBitmap(floorbg, ZooUtil.getAnimalWidth(), ZooUtil.getAnimalHeight());
+                        // canvas.drawBitmap(star, x, y, paint);
                         ++size;
                     }
                     ++clearMediaIndex;
@@ -559,6 +564,7 @@ public class GameView extends View {
         }
     }
 
+    @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {

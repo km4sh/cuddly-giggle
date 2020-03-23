@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ClearClearHappy.iml" filepath="$PROJECT_DIR$/ClearClearHappy.iml" group="ClearClearHappy" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ClearClearHappy/app" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="cuddly-giggle/app" />
+      <module fileurl="file://$PROJECT_DIR$/cuddly-giggle.iml" filepath="$PROJECT_DIR$/cuddly-giggle.iml" group="cuddly-giggle" />
     </modules>
   </component>
 </project>
